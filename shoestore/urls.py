@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from api.urls import urlpatterns as api_urls
+from api.models import *
+
+admin.site.register(Manufacturer)
+admin.site.register(ShoeColor)
+admin.site.register(ShoeType)
+admin.site.register(Shoe)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

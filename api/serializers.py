@@ -1,29 +1,29 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import HyperlinkedModelSerializer
 from api.models import Manufacturer, ShoeColor, ShoeType, Shoe
 
 
-class ManufacturerSerializer(ModelSerializer):
+class ManufacturerSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Manufacturer
         fields = ('website', 'name')
 
 
-class ShoeColorSerializer(ModelSerializer):
+class ShoeColorSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = ShoeColor
         fields = ('color_name',)
 
 
-class ShoeTypeSerializer(ModelSerializer):
+class ShoeTypeSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = ShoeType
         fields = ('style',)
 
 
-class ShoeSerializer(ModelSerializer):
+class ShoeSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Shoe
-        fields = (
+        fields = [
             'size',
             'brand_name',
             'manufacturer',
@@ -31,4 +31,4 @@ class ShoeSerializer(ModelSerializer):
             'material',
             'shoe_type',
             'fasten_type',
-        )
+        ]
